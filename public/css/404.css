@@ -1,0 +1,201 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f2f2f2;
+  background-image: linear-gradient(90deg, #e4fffe 0%, #ebedee 100%);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+/* Set max width for content and center it */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Styling the header */
+.main-header {
+  background-color: #242424;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the navigation */
+.main-header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styling the navigation item list */
+.main-header__item-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+/* Styling the navigation item */
+.main-header__item {
+  margin-right: 1rem;
+}
+
+/* Styling the active link */
+.active {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Styling the navigation links on hover */
+.main-header__item a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Styling the form control */
+.content-div {
+  background-color: #fff;
+  padding: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* Styling the welcome message */
+.content-div h6:first-of-type {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+/* Styling the message */
+.content-div h6:last-of-type {
+  font-size: 1.5rem;
+  color: #000;
+  margin-top: 1rem;
+}
+
+/* Styling the form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+/* Styling the label */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #4d4d4d;
+}
+
+/* Styling the input fields */
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+}
+
+/* Styling the focused input fields */
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus {
+  outline: none;
+  border-color: #2196f3;
+}
+
+/* Styling the button */
+.btn {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Styling the button on hover */
+.btn:hover {
+  background-color: #0d8aec;
+}
+
+/* Styling the navigation links on hover */
+.main-header__item a:hover {
+  color: #49fffc;
+}
+
+.main-header__item-list.right-align {
+  justify-content: space-between;
+}
+
+.left-menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+}
+
+.right-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-page__title {
+  font-size: 12rem;
+  font-weight: bold;
+  color: #0f0a0a;
+  margin-bottom: 16px;
+}
+
+.error-page__subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4d4d4d;
+  margin-bottom: 24px;
+}
+
+.error-page__link {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.error-page__link:hover {
+  background-color: #0d8aec;
+}

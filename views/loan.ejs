@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Loan Input</title>
+    <link rel="stylesheet" href="/css/loan.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="main-header__nav">
+        <ul class="main-header__item-list left-menu">
+          <li class="main-header__item">
+            <a class="active" href="/api/home">Home</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/getloan">View Loans</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/loan">Add Loan</a>
+          </li>
+        </ul>
+        <ul class="main-header__item-list right-menu">
+          <li class="main-header__item">
+            <a class="active" href="/api/login">Login</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/register">Sign Up</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/profile">Profile</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form class="input-form" action="/api/loan" method="post">
+        <div class="form-control">
+          <label for="loan_type">Loan Type</label>
+          <select name="loan_type" id="loan_type">
+            <option value="Home">Home</option>
+            <option value="Auto">Auto</option>
+            <option value="Personal">Personal</option>
+          </select>
+        </div>
+        <div class="error-text"><%= errorDetails.loan_type && errorDetails.loan_type.message %></div>
+        <div class="form-control">
+          <label for="loan_number">Loan Number</label>
+          <input type="text" name="loan_number" id="loan_number" />
+        </div>
+        <div class="error-text"><%= errorDetails.loan_number && errorDetails.loan_number.message %></div>
+        <div class="form-control">
+          <label for="amount">Amount</label>
+          <input type="number" name="amount" id="amount" />
+        </div>
+        <div class="error-text"><%= errorDetails.amount && errorDetails.amount.message %></div>
+        <div class="form-control">
+          <label for="interest_rate">Interest Rate</label>
+          <input type="number" name="interest_rate" id="interest_rate" />
+        </div>
+        <div class="error-text"><%= errorDetails.interest_rate && errorDetails.interest_rate.message %></div>
+        <div class="form-control">
+          <label for="loan_term">Loan Term</label>
+          <input type="number" name="loan_term" id="loan_term" />
+        </div>
+        <div class="error-text"><%= errorDetails.loan_term && errorDetails.loan_term.message %></div>
+        <div class="form-control">
+          <label for="start_date">Start Date</label>
+          <input type="date" name="start_date" id="start_date" />
+        </div>
+        <div class="error-text"><%= errorDetails.start_date && errorDetails.start_date.message %></div>
+        <div class="form-control">
+          <button type="submit">Submit</button>
+        </div>
+        <div class="error-text"><%= errorMessage %></div>
+      </form>
+    </main>
+  </body>
+</html>

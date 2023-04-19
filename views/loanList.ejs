@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Loan List</title>
+    <link rel="stylesheet" href="/css/loan.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="main-header__nav">
+        <ul class="main-header__item-list left-menu">
+          <li class="main-header__item">
+            <a class="active" href="/api/home">Home</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/getloan">View Loans</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/loan">Add Loan</a>
+          </li>
+        </ul>
+        <ul class="main-header__item-list right-menu">
+          <li class="main-header__item">
+            <a class="active" href="/api/login">Login</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/register">Sign Up</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/profile">Profile</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1 class="page-title">Loan Data Table</h1>
+      <div class="table-container">
+        <table class="loan-table">
+          <thead class="loan-table__header">
+            <tr>
+              <th>Loan Number</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Interest Rate</th>
+              <th>Loan Term</th>
+              <th>Loan Start</th>
+              <th>Last Modified</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < data.length; i++) { %>
+            <tr class="loan-table__row">
+              <td class="loan-table__cell"><%= data[i].loan_number %></td>
+              <td class="loan-table__cell"><%= data[i].loan_type %></td>
+              <td class="loan-table__cell"><%= data[i].amount %></td>
+              <td class="loan-table__cell"><%= data[i].interest_rate %></td>
+              <td class="loan-table__cell"><%= data[i].loan_term %></td>
+              <td class="loan-table__cell"><%= data[i].start_date %></td>
+              <td class="loan-table__cell"><%= data[i].updated_date %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

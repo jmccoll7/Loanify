@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Profile" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="main-header__nav">
+        <ul class="main-header__item-list left-menu">
+          <li class="main-header__item">
+            <a class="active" href="/api/home">Home</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/getloan">View Loans</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/loan">Add Loan</a>
+          </li>
+        </ul>
+        <ul class="main-header__item-list right-menu">
+          <li class="main-header__item">
+            <a class="active" href="/api/login">Login</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/register">Sign Up</a>
+          </li>
+          <li class="main-header__item">
+            <a class="active" href="/api/profile">Profile</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="content-div" style="width: 800px">
+        <h6>Profile</h6>
+        <h6>User: <%= user %></h6>
+        <h6>Email: <%= email %></h6>
+        <form action="/api/logout" method="POST">
+          <button class="logout-btn" type="submit">Logout</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

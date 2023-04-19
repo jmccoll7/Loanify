@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Log In</title>
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <main>
+      <form class="product-form" action="/api/login" method="post">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" required placeholder="email" />
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" required placeholder="password" />
+        </div>
+        <button class="btn" type="submit">Log In</button>
+        <div class="error-text"><%= tokenExpiredMsg %></div>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "nodesecurity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "config": "^3.3.9",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.2",
+    "morgan-body": "^2.6.8",
+    "passport": "^0.6.0",
+    "passport-openidconnect": "^0.1.1",
+    "rotating-file-stream": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
