@@ -39,6 +39,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api", authenticationRoute, loanRoute);
 
+app.get("/", (req, res) => {
+  res.redirect("/api/home");
+});
+
 app.use((_req, res) => {
   res.status(404).render("404", { pageTitle: "Page Not Found" });
 });

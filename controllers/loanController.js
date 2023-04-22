@@ -26,11 +26,7 @@ export const loanInput = async (req, res) => {
   await loan
     .save()
     .then((data) => {
-      res.status(201).json({
-        message: 'Loan created successfully',
-        entries: data.length,
-        data: data,
-      });
+      res.redirect(`/api/getloan?success=1&loanNumber=${data.loan_number}`);
       console.log('Loan created successfully', data);
     })
     .catch((err) => {
@@ -44,9 +40,10 @@ export const loanInput = async (req, res) => {
 };
 
 export const getAllLoans = async (req, res) => {
+  const successMessage = req.query.success === '1' ? `Loan Number ${req.query.loanNumber} created successfully` : null;
   await Loan.find()
     .then((data) => {
-      res.render('loanlist', { pageTitle: 'Loan List', data: data });
+      res.render('loanlist', { pageTitle: 'Loan List', data: data, successMessage});
       console.log('Loan data retrieved successfully', data);
     })
     .catch((err) => {
