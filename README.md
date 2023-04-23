@@ -10,6 +10,7 @@ This is a simple loan data app that allows users to add loan data and calculate 
     - `PORT` - the port you want to run the app on
     - `MONGODB_URI` - the URI of your MongoDB database
     - `NODE_ENV` - the environment you want to run the app in (development or production)
-    - `TOKEN_SECRET_KEY` - the secret key used to sign the JWT token
+    - `TOKEN_SECRET_KEY` - the secret key used to sign the JWT access token
+    - `REFRESH_TOKEN_SECRET_KEY` - the secret key used to sign the refresh token
 4. Run `npm start` to start the app
 5. Open `http://localhost:3000` in your browser (or use the port specified in your env file) 
