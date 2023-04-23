@@ -22,16 +22,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  confirmPassword: {
-    type: String,
-    required: true,
-    validate: {
-      validator: function (el) {
-        return el === this.password;
-      },
-      message: "Passwords don't match.",
-    },
-  },
   avatar: {
     type: String,
   },
@@ -39,16 +29,23 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  refreshTokens: [
+    {
+      token: {
+        type: String,
+        required: true,
+      }
+    }
+  ]
 });
 
 userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
     this.password = await bcrypt.hash(this.password, 10);
-    this.confirmPassword = await bcrypt.hash(this.confirmPassword, 10);
-    this.confirmPassword = undefined;
   }
   next();
 });
+
 
 userSchema.methods.generateAuthToken = async function () {
   try {
@@ -61,11 +58,24 @@ userSchema.methods.generateAuthToken = async function () {
   }
 };
 
+userSchema.methods.generateRefreshToken = async function () {
+  try {
+    const refreshToken = jwt.sign({ _id: this._id }, process.env.REFRESH_TOKEN_SECRET_KEY, {
+      expiresIn: '7d',
+    });
+    this.refreshTokens = this.refreshTokens.concat({ token: refreshToken });
+    await this.save();
+    return refreshToken;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 userSchema.methods.verifyPassword = async function (password) {
   const user = this;
   const isMatch = await bcrypt.compare(password, this.password);
   if (!isMatch) {
-    throw new Error('Invalid Credentials');
+    throw new Error('Invalid Credentials 123');
   }
   return user;
 };
@@ -73,11 +83,11 @@ userSchema.methods.verifyPassword = async function (password) {
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email: email });
   if (!user) {
-    throw new Error('Invalid Credentials');
+    throw new Error(`Invalid Credentials 444 ${email}`);
   }
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
-    throw new Error('Invalid Credentials');
+    throw new Error('Invalid Credentials 555');
   }
   return user;
 };

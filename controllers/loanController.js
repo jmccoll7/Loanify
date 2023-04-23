@@ -27,7 +27,7 @@ export const loanInput = async (req, res) => {
     .save()
     .then((data) => {
       res.redirect(`/api/getloan?success=1&loanNumber=${data.loan_number}`);
-      console.log('Loan created successfully', data);
+      console.log(`Loan created successfully: ${data.loan_number}`);
     })
     .catch((err) => {
       console.log(err);
@@ -39,12 +39,13 @@ export const loanInput = async (req, res) => {
     });
 };
 
-export const getAllLoans = async (req, res) => {
+export const getLoansByUser = async (req, res) => {
   const successMessage = req.query.success === '1' ? `Loan Number ${req.query.loanNumber} created successfully` : null;
-  await Loan.find()
+  console.log(req.user._id)
+  await Loan.find({ user_id: req.user._id })
     .then((data) => {
-      res.render('loanlist', { pageTitle: 'Loan List', data: data, successMessage});
-      console.log('Loan data retrieved successfully', data);
+      res.render('loanlist', { pageTitle: 'Loan List', data: data, successMessage });
+      console.log(`Loan data retrieved successfully: ${data.length} items`);
     })
     .catch((err) => {
       logError(res, err);
@@ -59,7 +60,7 @@ export const getLoanById = async (req, res) => {
         status: 'Loan data retrieved successfully',
         data: data,
       });
-      console.log('Loan data retrieved successfully', data);
+      console.log(`Loan data retrieved successfully: ${data.length} items`);
     })
     .catch((err) => {
       logError(res, err);
@@ -74,7 +75,7 @@ export const createLoan = async (req, res) => {
         entries: data.length,
         data: data,
       });
-      console.log('Loan created successfully', data);
+      console.log(`Loan created successfully: ${data.loan_number}`);
     })
     .catch((err) => {
       logError(res, err);
@@ -97,7 +98,7 @@ export const updateLoan = async (req, res) => {
         message: 'Loan updated successfully',
         data: data,
       });
-      console.log('Loan updated successfully', data);
+      console.log(`Loan updated successfully: ${data.loan_number}`);
     })
     .catch((err) => {
       logError(res, err);
@@ -108,11 +109,8 @@ export const deleteLoan = async (req, res) => {
   const id = req.params.id;
   await Loan.deleteOne({ _id: id })
     .then((data) => {
-      res.status(204).json({
-        message: 'Loan deleted successfully',
-        data: data,
-      });
-      console.log('Loan deleted successfully', data);
+      console.log(`Loan deleted successfully: ${data.loan_number}`);
+      res.redirect('/api/getloan');
     })
     .catch((err) => {
       logError(res, err);

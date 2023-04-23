@@ -13,29 +13,11 @@
       <form class="product-form" action="/api/signup" method="POST">
         <div class="form-group">
           <label for="name">User Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            name="name"
-            placeholder="User Name"
-          />
+          <input type="text" class="form-control" id="name" name="name" placeholder="User Name" />
           <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            placeholder="Email"
-          />
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
           <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            name="password"
-            placeholder="Password"
-          />
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
           <label for="confirmPassword">Confirm Password</label>
           <input
             type="password"
@@ -46,6 +28,13 @@
           />
         </div>
         <button type="submit" class="btn">Sign Up</button>
+        <% if (errors && errors.length > 0) { %>
+        <ul class="error-messages">
+          <% errors.forEach((error) => { %>
+          <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+        <% } %>
       </form>
     </main>
   </body>

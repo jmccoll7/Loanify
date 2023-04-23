@@ -37,7 +37,7 @@
     <main>
       <h1 class="page-title">Loan Data Table</h1>
       <% if (successMessage) { %>
-        <div class="success-message"><%= successMessage %></div>
+      <div class="success-message"><%= successMessage %></div>
       <% } %>
       <div class="table-container">
         <table class="loan-table">
@@ -48,8 +48,10 @@
               <th>Amount</th>
               <th>Interest Rate</th>
               <th>Loan Term</th>
+              <th class="total-cost-header">Total Cost</th>
               <th>Loan Start</th>
               <th>Last Modified</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -60,8 +62,14 @@
               <td class="loan-table__cell"><%= data[i].amount %></td>
               <td class="loan-table__cell"><%= data[i].interest_rate %></td>
               <td class="loan-table__cell"><%= data[i].loan_term %></td>
+              <td class="loan-table__cell total-cost"><%= data[i].total_cost %></td>
               <td class="loan-table__cell"><%= data[i].start_date %></td>
               <td class="loan-table__cell"><%= data[i].updated_date %></td>
+              <td class="loan-table__cell">
+                <form action="/api/deleteloan/<%= data[i]._id %>" method="post">
+                  <button class="delete-btn" type="submit">Delete</button>
+                </form>
+              </td>
             </tr>
             <% } %>
           </tbody>

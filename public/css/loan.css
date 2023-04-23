@@ -134,7 +134,6 @@ select:focus {
   border-color: #2196f3;
 }
 
-
 /* Styling the button */
 .btn {
   background-color: #2196f3;
@@ -217,8 +216,6 @@ select:focus {
   margin-right: 8px;
 }
 
-
-
 /* Add styles for the table */
 
 .loan-table {
@@ -266,6 +263,14 @@ select:focus {
   vertical-align: middle;
 }
 
+.total-cost-header {
+  color: pink;
+}
+
+.total-cost {
+  font-weight: bold;
+}
+
 .page-title {
   text-align: center;
   margin-top: 2rem;
@@ -278,4 +283,45 @@ select:focus {
   max-width: 1400px;
   padding-left: 100px;
   padding-right: 100px;
+}
+
+button.delete-btn {
+  background-color: #ff4b5c;
+  width: 80px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.1s;
+}
+
+button.delete-btn:hover {
+  background-color: #ff8e99;
+}
+
+button.edit-btn {
+  background-color: #4b84ff;
+  width: 80px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.1s;
+}
+
+button.edit-btn:hover {
+  background-color: #8ed4ff;
 }
